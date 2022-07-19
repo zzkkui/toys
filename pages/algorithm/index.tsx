@@ -1,5 +1,5 @@
+import CLayout from "@/layout";
 import React, { ReactNode } from "react";
-import CLayout from "../../layout";
 
 function Algorithm() {
   return <div>Algorithm</div>;

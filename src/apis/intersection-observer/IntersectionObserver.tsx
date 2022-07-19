@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import { lazyloadImages } from "@/utils/apis/intersection-observer";
 import React, { memo, useEffect, useRef } from "react";
-import { lazyloadImages } from "./utils";
 import styles from "./index.module.less";
 
 type IntersectionObserverComPropsType = {
@@ -17,12 +17,12 @@ function IntersectionObserverCom(props: IntersectionObserverComPropsType) {
         entries.forEach((entry) => {
           const { target, intersectionRatio } = entry;
           const _target = target as HTMLImageElement;
-          if (_target.dataset["hadLoading"] === "true") {
+          if (_target.dataset["hadloading"] === "true") {
             return;
           }
           if (intersectionRatio > 0) {
             _target.src = _target.dataset["src"] ? _target.dataset["src"] : "";
-            _target.dataset["hadLoading"] = "true";
+            _target.dataset["hadloading"] = "true";
             observerRef.current!.unobserve(_target);
           }
         });
@@ -51,7 +51,7 @@ function IntersectionObserverCom(props: IntersectionObserverComPropsType) {
                 data-src={image.src}
                 alt={`${index}`}
                 style={{ transition: ".3s" }}
-                data-hadLoading="false"
+                data-hadloading="false"
               />
             </div>
           );

@@ -1,9 +1,9 @@
+import { MenuItem, menus } from "@/config/menus";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import Sider from "antd/lib/layout/Sider";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { menus, MenuItem } from "../../config/menus";
 import styles from "./index.module.less";
 
 export function findPath<T = any>(tree: any, func: Fn): T | T[] | null {

@@ -2,10 +2,6 @@ import Link from "next/link";
 import { MenuItem, menus } from "../config/menus";
 import styles from "../styles/Home.module.less";
 
-// export type CMenuItem = MenuItem & {
-//   children: CMenuItem;
-// };
-
 function getDefaultMenu(menus: MenuItem[]): any {
   return menus[0]?.children
     ? getDefaultMenu(menus[0]?.children)

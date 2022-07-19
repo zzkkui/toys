@@ -1,17 +1,19 @@
 import { Tabs } from "antd";
 import React, { ReactNode, useEffect, useRef, useState } from "react";
-import CLayout from "../../../layout";
-import IntersectionObserver from "./IntersectionObserver";
-import GetBoundingClientRect from "./GetBoundingClientRect";
+import { useRouter } from "next/router";
+import GetBoundingClientRect from "@/src/apis/intersection-observer/GetBoundingClientRect";
+import IntersectionObserver from "@/src/apis/intersection-observer/IntersectionObserver";
+import CLayout from "@/layout";
 
 import styles from "./index.module.less";
-import { useRouter } from "next/router";
 
 const { TabPane } = Tabs;
 
+const DEFAULT_TAB = "intersectionObserver";
+
 function LazyLoad() {
   const router = useRouter();
-  const [tabKey, setTabKey] = useState<string>();
+  const [tabKey, setTabKey] = useState<string>(DEFAULT_TAB);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   const onTabChange = (key: string) => {

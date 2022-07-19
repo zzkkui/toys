@@ -10,29 +10,3 @@
   font-weight: bold;
   display: inline-block;
 }
-
-.intersectionObserver,
-.getBoundingClientRect {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 1fr);
-  grid-auto-rows: 300px;
-  gap: 1rem;
-  padding: 20px 0;
-
-  .imageWrapper {
-    position: relative;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 13px;
-    transition: 0.3s;
-    &:hover {
-      transform: translateY(-2px);
-    }
-    .image {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-  }
-}

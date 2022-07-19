@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { memo, useCallback, useEffect, useRef } from "react";
 import throttle from "lodash/throttle";
-import { lazyloadImages } from "./utils";
 import styles from "./index.module.less";
+import { lazyloadImages } from "@/utils/apis/intersection-observer";
 
 type GetBoundingClientRectPropsType = {
   wrapper: HTMLDivElement;
@@ -16,7 +16,7 @@ function GetBoundingClientRect(props: GetBoundingClientRectPropsType) {
   const showImage = useCallback(() => {
     if (ref.current) {
       Array.from(ref.current.getElementsByTagName("img")).forEach((imgNode) => {
-        if (imgNode.dataset["hadLoading"] === "true") {
+        if (imgNode.dataset["hadloading"] === "true") {
           return;
         }
         const { top, bottom } = imgNode.getBoundingClientRect();
@@ -26,7 +26,7 @@ function GetBoundingClientRect(props: GetBoundingClientRectPropsType) {
           const dataSrc = imgNode.dataset["src"];
           if (dataSrc) {
             imgNode.src = dataSrc;
-            imgNode.dataset["hadLoading"] = "true";
+            imgNode.dataset["hadloading"] = "true";
           }
         }
       });
@@ -66,7 +66,7 @@ function GetBoundingClientRect(props: GetBoundingClientRectPropsType) {
                 data-src={image.src}
                 alt={`${index}`}
                 style={{ transition: ".3s" }}
-                data-hadLoading="false"
+                data-hadloading="false"
               />
             </div>
           );

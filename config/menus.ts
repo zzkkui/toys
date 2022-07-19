@@ -1,6 +1,6 @@
 import { MenuProps } from "antd";
 
-type MenuItem = Required<MenuProps>["items"][number];
+export type MenuItem = Required<MenuProps>["items"][number];
 
 // label: React.ReactNode,
 //   key: React.Key,
@@ -9,11 +9,21 @@ type MenuItem = Required<MenuProps>["items"][number];
 
 export const menus: MenuItem[] = [
   {
-    label: "demo1",
-    key: "/demo1",
+    label: "API demo",
+    key: "/apis",
+    children: [
+      {
+        label: "Intersection Observer",
+        key: "/apis/intersection-observer",
+      },
+    ],
   },
   {
-    label: "demo2",
-    key: "/demo2",
+    label: "手写",
+    key: "/handwriting",
+  },
+  {
+    label: "算法",
+    key: "/algorithm",
   },
 ];

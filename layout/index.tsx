@@ -1,3 +1,4 @@
+import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import { Content } from "antd/lib/layout/layout";
 import Sider from "antd/lib/layout/Sider";
@@ -11,8 +12,12 @@ import styles from "./index.module.less";
 // const Sider = Layout
 
 export default function CLayout({ children }: { children: ReactNode }) {
-  const [collapsed, setCollapsed] = useState(false);
   const router = useRouter();
+  const [collapsed, setCollapsed] = useState(false);
+
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+  };
 
   const onClickMenu = ({ key }: { key: string }) => {
     router.push(key);
@@ -26,14 +31,15 @@ export default function CLayout({ children }: { children: ReactNode }) {
       <Layout style={{ minHeight: "100vh" }}>
         <Sider
           className={styles.sider}
-          collapsible
-          collapsed={collapsed}
-          onCollapse={(value) => setCollapsed(value)}
         >
+          <div onClick={toggleCollapsed} className={styles.collapse}>
+            {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+          </div>
           <Menu
             mode="inline"
             style={{ height: "100%", borderRight: 0 }}
             items={menus}
+            inlineCollapsed={collapsed}
             onClick={onClickMenu}
           />
         </Sider>

@@ -1,28 +1,5 @@
-import type {
-  NextComponentType,
-  NextPageContext,
-  NextLayoutComponentType,
-} from "next";
-import type { AppProps } from "next/app";
-
 /// <reference types="next" />
 /// <reference types="next/image-types/global" />
 
 // NOTE: This file should not be edited
 // see https://nextjs.org/docs/basic-features/typescript for more information.
-
-declare module "next" {
-  type NextLayoutComponentType<P = {}> = NextComponentType<
-    NextPageContext,
-    any,
-    P
-  > & {
-    getLayout?: (page: ReactNode) => ReactNode;
-  };
-}
-
-declare module "next/app" {
-  type AppLayoutProps<P = {}> = AppProps & {
-    Component: NextLayoutComponentType;
-  };
-}

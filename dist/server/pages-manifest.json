@@ -1,0 +1,11 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/api/hello": "pages/api/hello.js",
+  "/algorithm": "pages/algorithm.html",
+  "/apis/intersection-observer": "pages/apis/intersection-observer.html",
+  "/": "pages/index.html",
+  "/handwriting": "pages/handwriting.html",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html"
+}

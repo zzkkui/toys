@@ -1,11 +1,8 @@
 import { MenuProps } from "antd";
 
-export type MenuItem = Required<MenuProps>["items"][number];
-
-// label: React.ReactNode,
-//   key: React.Key,
-//   icon?: React.ReactNode,
-//   children?: MenuItem[],
+export type MenuItem = Required<MenuProps>["items"][number] & {
+  children?: MenuItem[];
+};
 
 export const menus: MenuItem[] = [
   {

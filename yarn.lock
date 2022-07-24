@@ -1788,9 +1788,9 @@
   dependencies:
     "language-subtag-registry" "~0.3.2"
 
-"less-loader@>= 7.0.0":
+"less-loader@^11.0.0", "less-loader@>= 7.0.0":
   "integrity" "sha512-9+LOWWjuoectIEx3zrfN83NAGxSUB5pWEabbbidVQVgZhN+wN68pOvuyirVlH1IK4VT1f3TmlyvAnCXh8O5KEw=="
-  "resolved" "https://registry.npmjs.org/less-loader/-/less-loader-11.0.0.tgz"
+  "resolved" "https://registry.npmmirror.com/less-loader/-/less-loader-11.0.0.tgz"
   "version" "11.0.0"
   dependencies:
     "klona" "^2.0.4"

@@ -33,3 +33,8 @@ jobs:
         run: npm install
       - name: build app
         run: npm run build
+      - name: deploy
+        uses: crazy-max/ghaction-github-pages@v3.0.0
+        with: 
+          build_dir: ./docs
+          jekyll: false

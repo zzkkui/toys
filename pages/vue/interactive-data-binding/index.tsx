@@ -5,16 +5,15 @@ import styles from "./index.module.less";
 
 const isDev = process.env.NODE_ENV === "development";
 
-const iframeSrc = isDev ? '/iframe/vue/interactive-data-binding/index.html' : '/toys/iframe/vue/interactive-data-binding/index.html'
+const iframeSrc = isDev
+  ? "/iframe/vue/interactive-data-binding/index.html"
+  : "/toys/iframe/vue/interactive-data-binding/index.html";
 
 function InteractiveDataBinding() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>vue 双向绑定的简单实现</div>
-      <iframe
-        src="/iframe/vue/interactive-data-binding/index.html"
-        className={styles.frame}
-      ></iframe>
+      <iframe src={iframeSrc} className={styles.frame}></iframe>
     </div>
   );
 }

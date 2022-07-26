@@ -3,6 +3,10 @@ import CLayout from "../../../layout";
 
 import styles from "./index.module.less";
 
+const isDev = process.env.NODE_ENV === "development";
+
+const iframeSrc = isDev ? '/iframe/vue/interactive-data-binding/index.html' : '/toys/iframe/vue/interactive-data-binding/index.html'
+
 function InteractiveDataBinding() {
   return (
     <div className={styles.wrapper}>

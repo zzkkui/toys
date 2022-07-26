@@ -6,14 +6,6 @@ const nextConfig = {
   swcMinify: true,
   distDir: 'dist',
   basePath: '/toys',
-  async rewrites() {
-    return [
-      {
-        source: '/',
-        destination: '/toys',
-      },
-    ]
-  },
   webpack: (config) => {
     config.resolve.alias['@'] = path.resolve(__dirname);
     return config;

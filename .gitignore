@@ -11,6 +11,7 @@
 # next.js
 /.next/
 /dist/
+/export/
 
 # production
 /build

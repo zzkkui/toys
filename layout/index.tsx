@@ -20,7 +20,7 @@ export default function CLayout({ children, title }: CLayoutPropsType) {
       <Head>
         <title>{title || DEFAULT_TITLE}</title>
       </Head>
-      <Layout style={{ height: "100vh" }}>
+      <Layout style={{ height: "100vh" }} hasSider>
         <Sidebar />
         <Content className={styles.content}>{children}</Content>
       </Layout>

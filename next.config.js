@@ -24,12 +24,14 @@ const nextConfig = {
     config.resolve.alias["@"] = path.resolve(__dirname);
     return config;
   },
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx']
 };
 
 const withPlugins = require("next-compose-plugins");
 
 const withLess = require("next-with-less");
 const withBundleAnalyzer = require("@next/bundle-analyzer");
+const withMDX = require('@next/mdx')
 
 const plugins = [
   [
@@ -46,6 +48,16 @@ const plugins = [
       enabled: process.env.ANALYZE === "true",
     },
   ],
+  [
+    withMDX(),
+    {
+      extension: /\.mdx?$/,
+      options: {
+        remarkPlugins: [],
+        rehypePlugins: [],
+      },
+    }
+  ]
 ];
 
 module.exports = withPlugins(plugins, nextConfig);

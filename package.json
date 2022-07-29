@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@mdx-js/loader": "^2.1.2",
     "@next/bundle-analyzer": "^12.2.2",
+    "@next/mdx": "^12.2.3",
     "antd": "^4.21.6",
     "cross-env": "^7.0.3",
     "dayjs": "^1.11.3",

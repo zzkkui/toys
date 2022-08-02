@@ -32,13 +32,13 @@ jobs:
       - name: install deps
         run: npm install
       - name: build app
-        run: npm run export
+        run: npm run export:GITHUB_PAG
       - name: deploy
         if: success()
         uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: gh-pages
-          build_dir: site
+          build_dir: out
           jekyll: false
         env:
           GITHUB_TOKEN: ${{ secrets.PAGE_TOKEN}}

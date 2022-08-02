@@ -1,17 +1,17 @@
 const path = require("path");
 
-console.log(process.env.NODE_ENV);
-
 const isDev = process.env.NODE_ENV === "development";
+
+const IS_VERCEL = process.env.VERCEL;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   distDir: "dist",
-  basePath: isDev ? "" : "/toys",
+  basePath: isDev || IS_VERCEL ? "" : "/toys",
   async rewrites() {
-    return isDev
+    return isDev || IS_VERCEL
       ? []
       : [
         {
@@ -24,7 +24,7 @@ const nextConfig = {
     config.resolve.alias["@"] = path.resolve(__dirname);
     return config;
   },
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx']
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx']
 };
 
 const withPlugins = require("next-compose-plugins");

@@ -1,11 +1,11 @@
 import { Tabs } from "antd";
-import React, { ReactNode, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import GetBoundingClientRect from "@/src/apis/intersection-observer/GetBoundingClientRect";
 import IntersectionObserver from "@/src/apis/intersection-observer/IntersectionObserver";
-import CLayout from "@/layout";
 
 import styles from "./index.module.less";
+import Head from "next/head";
 
 const { TabPane } = Tabs;
 
@@ -33,6 +33,9 @@ function LazyLoad() {
 
   return (
     <div className={styles.content} ref={wrapperRef}>
+      <Head>
+        <title>图片懒加载的两种实现方式</title>
+      </Head>
       <div className="title">图片懒加载的两种实现方式</div>
       <Tabs activeKey={tabKey} type="card" onChange={onTabChange}>
         <TabPane tab="IntersectionObserver" key="intersectionObserver">
@@ -49,8 +52,8 @@ function LazyLoad() {
   );
 }
 
-LazyLoad.getLayout = function getLayout(page: ReactNode) {
-  return <CLayout title="intersectionObserver 实现图片懒加载">{page}</CLayout>;
-};
+// LazyLoad.getLayout = function getLayout(page: ReactNode) {
+//   return <CLayout title="intersectionObserver 实现图片懒加载">{page}</CLayout>;
+// };
 
 export default LazyLoad;

@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
-import CLayout from "../../../layout";
+import Head from "next/head";
+import React from "react";
 
 import styles from "./index.module.less";
 
@@ -12,14 +12,13 @@ const iframeSrc = isGITHUB_PAG
 function InteractiveDataBinding() {
   return (
     <div className={styles.wrapper}>
+      <Head>
+        <title>vue 双向绑定的简单实现</title>
+      </Head>
       <div className={styles.title}>vue 双向绑定的简单实现</div>
       <iframe src={iframeSrc} className={styles.frame}></iframe>
     </div>
   );
 }
-
-InteractiveDataBinding.getLayout = function getLayout(page: ReactNode) {
-  return <CLayout>{page}</CLayout>;
-};
 
 export default InteractiveDataBinding;

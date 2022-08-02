@@ -1,25 +1,23 @@
 const path = require("path");
 
-const isDev = process.env.NODE_ENV === "development";
+// const isDev = process.env.NODE_ENV === "development";
 
-const IS_VERCEL = process.env.VERCEL;
+const IS_GITHUB_PAG = process.env.GITHUB_PAG;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  distDir: "dist",
-  basePath: isDev || IS_VERCEL ? "" : "/toys",
-  async rewrites() {
-    return isDev || IS_VERCEL
-      ? []
-      : [
-        {
-          source: "/",
-          destination: "/toys",
-        },
-      ];
-  },
+  basePath: IS_GITHUB_PAG ? "/toys" : "",
+  // async rewrites() {
+  //   return IS_GITHUB_PAG
+  //     ? [
+  //       {
+  //         source: "/",
+  //         destination: "/toys",
+  //       },
+  //     ] : [];
+  // },
   webpack: (config) => {
     config.resolve.alias["@"] = path.resolve(__dirname);
     return config;

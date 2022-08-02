@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require('webpack')
 
 // const isDev = process.env.NODE_ENV === "development";
 
@@ -20,6 +21,13 @@ const nextConfig = {
   // },
   webpack: (config) => {
     config.resolve.alias["@"] = path.resolve(__dirname);
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env': {
+          GITHUB_PAG: IS_GITHUB_PAG
+        }
+      })
+    )
     return config;
   },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx']

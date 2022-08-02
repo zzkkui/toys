@@ -3,11 +3,11 @@ import CLayout from "../../../layout";
 
 import styles from "./index.module.less";
 
-const isDev = process.env.NODE_ENV === "development";
+const isGITHUB_PAG = process.env.GITHUB_PAG;
 
-const iframeSrc = isDev
-  ? "/iframe/vue/interactive-data-binding/index.html"
-  : "/toys/iframe/vue/interactive-data-binding/index.html";
+const iframeSrc = isGITHUB_PAG
+  ? "/toys/iframe/vue/interactive-data-binding/index.html"
+  : "/iframe/vue/interactive-data-binding/index.html";
 
 function InteractiveDataBinding() {
   return (

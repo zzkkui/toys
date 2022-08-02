@@ -5,10 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:GITHUB_PAG": "cross-env GITHUB_PAG=true next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && next export",
+    "export:GITHUB_PAG": "cross-env GITHUB_PAG=true next build && next export",
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {

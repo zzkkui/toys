@@ -1,7 +1,7 @@
 const path = require("path");
 const webpack = require('webpack')
 
-// const isDev = process.env.NODE_ENV === "development";
+const isDev = process.env.NODE_ENV === "development";
 
 const IS_GITHUB_PAG = process.env.GITHUB_PAG;
 
@@ -10,17 +10,16 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   basePath: IS_GITHUB_PAG ? "/toys" : "",
-  // async rewrites() {
-  //   return IS_GITHUB_PAG
-  //     ? [
-  //       {
-  //         source: "/",
-  //         destination: "/toys",
-  //       },
-  //     ] : [];
+  // experimental: {
+  //   modularizeImports: {
+  //     'antd': {
+  //       // 目前只支持 lowerCase upperCase camelCase，antd 是连字符，暂不支持，这里先通过 babelrc 实现 
+  //       // https://nextjs.org/docs/advanced-features/compiler#modularize-imports
+  //       transform: 'antd/lib/{{lowerCase member}}',
+  //     },
+  //   },
   // },
   webpack: (config) => {
-    config.resolve.alias["@"] = path.resolve(__dirname);
     config.plugins.push(
       new webpack.DefinePlugin({
         'process.env': {
@@ -30,7 +29,12 @@ const nextConfig = {
     )
     return config;
   },
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx']
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+  compiler: {
+    removeConsole: true,
+    // 实验属性
+    // swcMinify: isDev ? false : true
+  }
 };
 
 const withPlugins = require("next-compose-plugins");
